@@ -29,10 +29,10 @@ public class HomePage extends AbstractPage {
     @FindBy(xpath = "//*[@id='mm-0']/div[7]/div[2]/div[2]/div[2]/div[3]/div/div/div[2]/div[1]/b/a")
     private WebElement firstLink;
 
-    @FindBy(xpath = "//*[@id='mm-0']/div[7]/div[2]/div[2]/div[2]/div[4]/div/div/div[2]/div[1]/b/a")
+    @FindBy(xpath = "//*[@id='catalogue']/div[6]/div[2]/div/div/div[3]/div[2]/div[2]/a")
     private WebElement secondLink;
 
-    @FindBy(xpath = "//*[@id='catalogue']/div[6]/div[3]/div/div/div[2]/div[1]/b/a")
+    @FindBy(xpath = "//*[@id='catalogue']/div[6]/div[3]/div/div/div[3]/div[2]/div[2]/a")
     private WebElement thirdLink;
 
     @FindBy(xpath = "//*[@id='mm-0']/div[7]/div[2]/div/div/strong/a")
@@ -71,17 +71,13 @@ public class HomePage extends AbstractPage {
         firstLink.click();
         backStep.click();
 
-        //при запуске этого сценария после первых кликов все падает, не могу решить эту проблему, но с одним кликом запускается нормально
-
-       /* WebDriverWait wait = new WebDriverWait(driver, 20);
-        wait.until(ExpectedConditions.textToBePresentInElement(driver.findElement(By.xpath("//*[@id='mm-0']/div[7]/div[2]/div[2]/div[2]/div[4]/div/div/div[2]/div[1]/b/a")), "Samsung Galaxy A5 2017 Black (SM-A520FZKD)"));
-        ((JavascriptExecutor) driver).executeScript("arguments[0].scrollIntoView(true);", driver.findElement(By.xpath("//*[@id='mm-0']/div[7]/div[2]/div[2]/div[2]/div[4]/div/div/div[2]/div[1]/b/a")));
-
         secondLink.click();
         backStep.click();
+
         thirdLink.click();
         backStep.click();
-        viewItems.click();*/
+
+        viewItems.click();
 
         return new CheckNumberOfItems(driver);
     }
