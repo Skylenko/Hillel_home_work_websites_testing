@@ -1,5 +1,6 @@
 package home_page;
 
+import core.hotline.page_object.check_number_of_item.CheckNumberOfItems;
 import core.hotline.page_object.check_prices_resuls_page.CheckPricesResultPage;
 import core.hotline.page_object.home_page.HomePage;
 import core.hotline.page_object.search_result_page.SearchResultPage;
@@ -10,6 +11,7 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
+import java.util.ArrayList;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
@@ -51,6 +53,7 @@ public class HomePageTest {
                     searchCondition, title),
                     title.contains(searchCondition));
         }
+
     }
 
     @Test
@@ -79,7 +82,21 @@ public class HomePageTest {
         assertEquals(min, minPriceInt);
     }
 
+    @Test
+    public void checkNumberOfItemsTesting() {
+
+        HomePage homePage = new HomePage(driver);
+        SearchResultPage searchResultPage = homePage.searchByText("Samsung");
+        List<String> items = searchResultPage.getItemName();
+        CheckNumberOfItems checkNumberOfItems = homePage.checkNumberOfItems();
+        List<String> viewItems = checkNumberOfItems.getViewResults();
+        Assert.assertEquals(items, viewItems);
+
+
+    }
+
 }
+
 
 
 
