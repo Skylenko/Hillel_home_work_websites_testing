@@ -4,15 +4,38 @@
          xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
     <modelVersion>4.0.0</modelVersion>
 
-    <groupId>com.lesson 14.8</groupId>
+    <groupId>com.lesson_14.8</groupId>
     <artifactId>lesson14.08</artifactId>
     <version>1.0-SNAPSHOT</version>
+    <properties>
+        <testConfigVersion>test.config.file</testConfigVersion>
+    </properties>
+
     <build>
         <plugins>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-surefire-plugin</artifactId>
                 <version>2.20</version>
+            </plugin>
+
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>properties-maven-plugin</artifactId>
+                        <version>1.0.0</version>
+                        <executions>
+                            <execution>
+                                <phase>initialize</phase>
+                                <goals>
+                                    <goal>read-project-properties</goal>
+                                </goals>
+                                <configuration>
+                                    <files>
+                                        <file>src/main/resources/${testConfigVersion}</file>
+                                    </files>
+                                </configuration>
+                            </execution>
+                        </executions>
             </plugin>
         </plugins>
     </build>

@@ -22,13 +22,12 @@ public class CheckNumberOfItems extends HomePage {
 
     public List<String> getViewResults() {
         List<String> viewResults = new ArrayList<String>();
-        List<String> reverseView = Lists.reverse(viewResults);
 
         for (WebElement element : items) {
             String text = element.getText().replaceFirst("Смартфон", "").trim();
             viewResults.add(text);
 
-
-
-        } return reverseView;
-    }}
+        }
+        return viewResults;
+    }
+}

@@ -1,7 +1,9 @@
-package home_page;
+package core.hotline.page_object.home_page;
 
+import core.hotline.page_object.appliances_page.AppliancesPage;
 import core.hotline.page_object.check_number_of_item.CheckNumberOfItems;
 import core.hotline.page_object.check_prices_resuls_page.CheckPricesResultPage;
+import core.hotline.page_object.common.utils.PropertyUtils;
 import core.hotline.page_object.home_page.HomePage;
 import core.hotline.page_object.search_result_page.SearchResultPage;
 import org.junit.After;
@@ -11,16 +13,26 @@ import org.junit.Test;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
-import java.util.ArrayList;
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 import java.util.concurrent.TimeUnit;
 
 import static org.junit.Assert.assertEquals;
+import static org.junit.Assert.assertTrue;
 
 public class HomePageTest {
 
-    private WebDriver driver;
+    protected WebDriver driver;
+    private PropertyUtils propertyUtils = null;
+
+    public HomePageTest() {
+        try {
+            this.propertyUtils = new PropertyUtils();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
 
     @Before
     public void driverSetUp() {
@@ -28,7 +40,7 @@ public class HomePageTest {
         System.setProperty("webdriver.chrome.driver", "chromedriver.exe");
         driver = new ChromeDriver();
         driver.manage().timeouts().implicitlyWait(30, TimeUnit.SECONDS);
-        driver.get("http://hotline.ua");
+        driver.get(propertyUtils.getProperty("main.site.ulr"));
         driver.manage().window().maximize();
     }
 
@@ -37,7 +49,6 @@ public class HomePageTest {
         driver.close();
 
     }
-
 
     @Test
     public void searchBarTesting() {
@@ -55,46 +66,6 @@ public class HomePageTest {
         }
 
     }
-
-    @Test
-    public void checkPricesTesting() {
-
-        HomePage homePage = new HomePage(driver);
-        String searchCondition = "Samsung";
-        homePage.searchByText(searchCondition);
-        CheckPricesResultPage checkPricesResultPage = homePage.checkPrices();
-        List<Integer> prices = checkPricesResultPage.getSearchPrices();
-
-        int max = Collections.max(prices);
-        int min = Collections.min(prices);
-
-        String priceRange = checkPricesResultPage.getPriceRange();
-
-        int endIndex = priceRange.indexOf("–");
-
-        String minPrice = priceRange.substring(0, endIndex).replaceAll(" ", "");
-        int minPriceInt = Integer.parseInt(minPrice);
-
-        String maxPrice = priceRange.substring(endIndex + 1, priceRange.length()).replaceAll(" ", "");
-        int maxPriceInt = Integer.parseInt(maxPrice);
-
-        assertEquals(max, maxPriceInt);
-        assertEquals(min, minPriceInt);
-    }
-
-    @Test
-    public void checkNumberOfItemsTesting() {
-
-        HomePage homePage = new HomePage(driver);
-        SearchResultPage searchResultPage = homePage.searchByText("Samsung");
-        List<String> items = searchResultPage.getItemName();
-        CheckNumberOfItems checkNumberOfItems = homePage.checkNumberOfItems();
-        List<String> viewItems = checkNumberOfItems.getViewResults();
-        Assert.assertEquals(items, viewItems);
-
-
-    }
-
 }
 
 

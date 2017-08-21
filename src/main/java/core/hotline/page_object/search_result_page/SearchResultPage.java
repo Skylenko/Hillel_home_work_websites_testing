@@ -1,5 +1,6 @@
 package core.hotline.page_object.search_result_page;
 
+import com.google.common.collect.Lists;
 import core.hotline.page_object.home_page.HomePage;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -41,8 +42,9 @@ public class SearchResultPage extends HomePage {
         for (int i = 0; i <= 2; i++) {
             String text = getSearchResults().get(i).toString();
             resultsOfItemsNumbers.add(text);
-        }
 
-        return resultsOfItemsNumbers;
+        }
+        List<String> reverseResultsOfItemsNumbers = Lists.reverse(resultsOfItemsNumbers);
+        return reverseResultsOfItemsNumbers;
     }
 }
