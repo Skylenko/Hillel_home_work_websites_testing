@@ -17,7 +17,8 @@ public class CheckPricesPageTesting extends HomePageTest {
         HomePage homePage = new HomePage(driver);
         String searchCondition = "Samsung";
         homePage.searchByText(searchCondition);
-        CheckPricesResultPage checkPricesResultPage = homePage.checkPrices();
+        CheckPricesResultPage checkPricesResultPage = new CheckPricesResultPage(driver);
+        checkPricesResultPage.checkPrices();
         List<Integer> prices = checkPricesResultPage.getSearchPrices();
 
         int max = Collections.max(prices);

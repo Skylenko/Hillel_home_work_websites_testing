@@ -20,6 +20,8 @@ public class CheckNumberOfItems extends HomePage {
         super(webDriver);
     }
 
+
+
     public List<String> getViewResults() {
         List<String> viewResults = new ArrayList<String>();
 

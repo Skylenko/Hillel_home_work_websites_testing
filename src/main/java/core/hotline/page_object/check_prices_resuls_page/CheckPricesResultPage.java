@@ -15,11 +15,20 @@ public class CheckPricesResultPage extends HomePage {
     @FindAll({@FindBy(xpath = "//a[@id='gotoshop-price']")})
     private List<WebElement> results;
 
+    @FindBy(xpath = "//a[@title='Сравнить цены Samsung Galaxy S8 64GB Black (SM-G950FZKD)']")
+    private WebElement checkPrices;
+
     @FindBy(xpath = "//*[@id='mm-0']/div[7]/div[4]/div[2]/div[1]/div[1]/div[1]/div[1]/a/strong")
     private WebElement priceRange;
 
     public CheckPricesResultPage(WebDriver webDriver) {
         super(webDriver);
+    }
+
+    public CheckPricesResultPage checkPrices() {
+        checkPrices.click();
+
+        return new CheckPricesResultPage(driver);
     }
 
     public List<Integer> getSearchPrices() {
