@@ -13,7 +13,7 @@ import java.io.*;
 import java.util.Properties;
 
 //Пока убрала эту аннотацию, потому что мы ее на занятии не дописали
-//@DefaultPath(defaultPath = "/bt/")
+
 
 
 public class AppliancesPage extends HomePage {
@@ -31,7 +31,6 @@ public class AppliancesPage extends HomePage {
 
     @FindBy(xpath = "//li[text()='Zanussi']")
     private WebElement zanussi;
-
 
     @FindBy(xpath = "//div[text()='Выберите модель']")
     private WebElement chooseModel;

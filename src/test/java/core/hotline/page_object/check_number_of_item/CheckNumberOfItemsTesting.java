@@ -1,16 +1,20 @@
 package core.hotline.page_object.check_number_of_item;
 
+import core.hotline.page_object.common.CommonTest;
 import core.hotline.page_object.home_page.HomePage;
-import core.hotline.page_object.home_page.HomePageTest;
 import core.hotline.page_object.search_result_page.SearchResultPage;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class CheckNumberOfItemsTesting extends HomePageTest {
+public class CheckNumberOfItemsTesting extends CommonTest {
 
+
+    public CheckNumberOfItemsTesting() throws IOException {
+    }
 
     @Test
     public void checkNumberOfItemsTesting() {

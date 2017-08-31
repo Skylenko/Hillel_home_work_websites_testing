@@ -1,15 +1,19 @@
 package core.hotline.page_object.check_prices_resuls_page;
 
+import core.hotline.page_object.common.CommonTest;
 import core.hotline.page_object.home_page.HomePage;
-import core.hotline.page_object.home_page.HomePageTest;
 import org.junit.Test;
 
+import java.io.IOException;
 import java.util.Collections;
 import java.util.List;
 
 import static org.junit.Assert.assertEquals;
 
-public class CheckPricesPageTesting extends HomePageTest {
+public class CheckPricesPageTesting extends CommonTest {
+
+    public CheckPricesPageTesting() throws IOException {
+    }
 
     @Test
     public void checkPricesTesting() {

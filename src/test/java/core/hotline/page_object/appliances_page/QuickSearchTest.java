@@ -1,11 +1,16 @@
 package core.hotline.page_object.appliances_page;
 
-import core.hotline.page_object.home_page.HomePageTest;
+import core.hotline.page_object.common.CommonTest;
 import org.junit.Test;
+
+import java.io.IOException;
 
 import static org.junit.Assert.assertEquals;
 
-public class QuickSearchTest extends HomePageTest {
+public class QuickSearchTest extends CommonTest {
+
+    public QuickSearchTest() throws IOException {
+    }
 
     @Test
     public void quickSearchTesting(){
