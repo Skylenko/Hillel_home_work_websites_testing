@@ -1,4 +1,4 @@
-package core.hotline.page_object.common;
+package core.common;
 
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.support.PageFactory;

@@ -1,7 +1,9 @@
 package core.hotline.page_object.check_prices_resuls_page;
 
-import core.hotline.page_object.common.CommonTest;
-import core.hotline.page_object.home_page.HomePage;
+import core.common.CommonTest;
+import core.hotline.page_object.home_page.HomePageHotline;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -15,10 +17,21 @@ public class CheckPricesPageTesting extends CommonTest {
     public CheckPricesPageTesting() throws IOException {
     }
 
+    @Before()
+    public void webDriverSetUp() {
+        driverSetUp();
+        driver.get(propertyUtils.getProperty("main.site.ulr"));
+
+    }
+    @After
+    public void webDriverTearDown() {
+        tearDown();
+    }
+
     @Test
     public void checkPricesTesting() {
 
-        HomePage homePage = new HomePage(driver);
+        HomePageHotline homePage = new HomePageHotline(driver);
         String searchCondition = "Samsung";
         homePage.searchByText(searchCondition);
         CheckPricesResultPage checkPricesResultPage = new CheckPricesResultPage(driver);

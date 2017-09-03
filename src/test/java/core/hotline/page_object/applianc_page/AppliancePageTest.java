@@ -1,7 +1,7 @@
 package core.hotline.page_object.applianc_page;
 
 import core.hotline.page_object.appliances_page.AppliancePageAnn;
-import core.hotline.page_object.common.CommonTest;
+import core.common.CommonTest;
 import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;

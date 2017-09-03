@@ -1,6 +1,6 @@
 package core.hotline.page_object.check_prices_resuls_page;
 
-import core.hotline.page_object.home_page.HomePage;
+import core.hotline.page_object.home_page.HomePageHotline;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindAll;
@@ -10,7 +10,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 @SuppressWarnings("ALL")
-public class CheckPricesResultPage extends HomePage {
+public class CheckPricesResultPage extends HomePageHotline {
 
     @FindAll({@FindBy(xpath = "//a[@id='gotoshop-price']")})
     private List<WebElement> results;

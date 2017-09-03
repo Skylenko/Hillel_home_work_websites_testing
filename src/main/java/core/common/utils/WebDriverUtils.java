@@ -1,8 +1,8 @@
-package core.hotline.page_object.common.utils;
+package core.common.utils;
 
 
-import core.hotline.page_object.common.AbstractPage;
-import core.hotline.page_object.common.annotations.DefaultPath;
+import core.common.AbstractPage;
+import core.common.annotations.DefaultPath;
 
 import java.io.IOException;
 import java.lang.annotation.Annotation;

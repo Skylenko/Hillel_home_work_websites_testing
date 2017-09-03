@@ -1,8 +1,10 @@
 package core.hotline.page_object.check_number_of_item;
 
-import core.hotline.page_object.common.CommonTest;
-import core.hotline.page_object.home_page.HomePage;
+import core.common.CommonTest;
+import core.hotline.page_object.home_page.HomePageHotline;
 import core.hotline.page_object.search_result_page.SearchResultPage;
+import org.junit.After;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -16,10 +18,21 @@ public class CheckNumberOfItemsTesting extends CommonTest {
     public CheckNumberOfItemsTesting() throws IOException {
     }
 
+    @Before()
+    public void webDriverSetUp() {
+        driverSetUp();
+        driver.get(propertyUtils.getProperty("main.site.ulr"));
+
+    }
+    @After
+    public void webDriverTearDown() {
+        tearDown();
+    }
+
     @Test
     public void checkNumberOfItemsTesting() {
 
-        HomePage homePage = new HomePage(driver);
+        HomePageHotline homePage = new HomePageHotline(driver);
         SearchResultPage searchResultPage = homePage.searchByText("Samsung");
         List<String> items = searchResultPage.getItemName();
         CheckNumberOfItems checkNumberOfItems = searchResultPage.checkNumberOfItems();

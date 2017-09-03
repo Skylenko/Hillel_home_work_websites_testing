@@ -1,6 +1,6 @@
 package core.hotline.page_object.appliances_page;
 
-import core.hotline.page_object.home_page.HomePage;
+import core.hotline.page_object.home_page.HomePageHotline;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,9 +14,7 @@ import java.util.Properties;
 
 //Пока убрала эту аннотацию, потому что мы ее на занятии не дописали
 
-
-
-public class AppliancesPage extends HomePage {
+public class AppliancesPage extends HomePageHotline {
 
     private String text = "";
 
@@ -55,6 +53,9 @@ public class AppliancesPage extends HomePage {
 
     @FindBy(xpath = "//div[@class='th-tabl']")
     private WebElement characteristics;
+
+    @FindBy(xpath = "//a[@data-eventaction='Бытовая техника']")
+    private WebElement appliance;
 
     public AppliancesPage(WebDriver webDriver) {
         super(webDriver);

@@ -1,8 +1,10 @@
 package core.hotline.page_object.home_page;
 
-import core.hotline.page_object.common.CommonTest;
+import core.common.CommonTest;
 import core.hotline.page_object.search_result_page.SearchResultPage;
+import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 
 import java.io.IOException;
@@ -13,10 +15,21 @@ public class HomePageTest extends CommonTest {
     public HomePageTest() throws IOException {
     }
 
+    @Before()
+    public void webDriverSetUp() {
+        driverSetUp();
+        driver.get(propertyUtils.getProperty("main.site.ulr"));
+
+    }
+    @After
+    public void webDriverTearDown() {
+        tearDown();
+    }
+
     @Test
     public void searchBarTesting() throws IOException {
 
-        HomePage homePage = new HomePage(getDriver());
+        HomePageHotline homePage = new HomePageHotline(getDriver());
 
         String searchCondition = "Samsung";
         SearchResultPage searchResultPage = homePage.searchByText(searchCondition);
@@ -28,9 +41,20 @@ public class HomePageTest extends CommonTest {
                     searchCondition, title),
                     title.contains(searchCondition));
         }
+    }
+
+    @Test
+    public  void searchItems(){
+
+        HomePageHotline homePageHotline = new HomePageHotline(getDriver());
+
+        List<String> elements = homePageHotline.getResults();
 
     }
-}
+
+    }
+
+
 
 
 

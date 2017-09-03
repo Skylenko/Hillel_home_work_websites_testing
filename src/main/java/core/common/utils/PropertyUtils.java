@@ -1,4 +1,4 @@
-package core.hotline.page_object.common.utils;
+package core.common.utils;
 
 
 import java.io.File;

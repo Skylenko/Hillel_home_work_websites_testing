@@ -2,8 +2,7 @@ package core.hotline.page_object.search_result_page;
 
 import com.google.common.collect.Lists;
 import core.hotline.page_object.check_number_of_item.CheckNumberOfItems;
-import core.hotline.page_object.home_page.HomePage;
-import org.openqa.selenium.By;
+import core.hotline.page_object.home_page.HomePageHotline;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -19,7 +18,7 @@ import java.util.List;
 /**
  * Created by User on 14.08.2017.
  */
-public class SearchResultPage extends HomePage {
+public class SearchResultPage extends HomePageHotline {
 
 
     @FindAll({@FindBy(xpath = "//a[@data-eventlabel='Product name']")})

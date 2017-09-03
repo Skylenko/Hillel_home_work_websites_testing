@@ -1,4 +1,4 @@
-package core.hotline.page_object.common.annotations;
+package core.common.annotations;
 
 import java.lang.annotation.ElementType;
 import java.lang.annotation.Retention;

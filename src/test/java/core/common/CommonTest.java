@@ -1,9 +1,9 @@
-package core.hotline.page_object.common;
+package core.common;
 
 
 import core.hotline.page_object.appliances_page.AppliancePageAnn;
-import core.hotline.page_object.common.utils.PropertyUtils;
-import core.hotline.page_object.common.utils.WebDriverUtils;
+import core.common.utils.PropertyUtils;
+import core.common.utils.WebDriverUtils;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
 
@@ -12,7 +12,7 @@ import java.util.concurrent.TimeUnit;
 
 public class CommonTest {
     protected WebDriver driver;
-    private PropertyUtils propertyUtils = null;
+    protected PropertyUtils propertyUtils = null;
 
     public  CommonTest() throws IOException {
         this.propertyUtils = new PropertyUtils();
