@@ -11,7 +11,7 @@ public class HomePageRozetka extends AbstractPage {
     @FindBy(xpath = "//*[@id='rz-search']/form/div[1]/div[2]/input")
     private WebElement searchField;
 
-    @FindBy (xpath = "//*[@id='rz-search']/form/span/span/button")
+    @FindBy(xpath = "//span[@class='rz-search-button-go-link']")
     private WebElement buttonSearch;
 
     protected WebDriver driver;
@@ -22,9 +22,9 @@ public class HomePageRozetka extends AbstractPage {
         this.driver = webDriver;
     }
 
-    public SearchPage searchText(String text){
+    public SearchPage searchText(String text) {
 
-        searchField.clear();
+        //searchField.clear();
         searchField.sendKeys(text);
         buttonSearch.click();
         return new SearchPage(driver);
