@@ -3,6 +3,7 @@ package core.hotline.page_object.search_result_page;
 import com.google.common.collect.Lists;
 import core.hotline.page_object.check_number_of_item.CheckNumberOfItems;
 import core.hotline.page_object.home_page.HomePageHotline;
+import org.openqa.selenium.By;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -14,15 +15,12 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 /**
  * Created by User on 14.08.2017.
  */
 public class SearchResultPage extends HomePageHotline {
-
-
-    @FindAll({@FindBy(xpath = "//a[@data-eventlabel='Product name']")})
-    private List<WebElement> results;
 
     @FindBy(xpath = "//a[@title='Цены на Samsung Galaxy S8 64GB Black (SM-G950FZKD)']")
     private WebElement firstLink;
@@ -68,15 +66,11 @@ public class SearchResultPage extends HomePageHotline {
     }
 
     public List<String> getSearchResults() {
-        List<String> resultsTitles = new ArrayList<String>();
-        for (WebElement element : results) {
-            String text = element.getText();
-            resultsTitles.add(text);
 
-        }
-        return resultsTitles;
-
-
+        List<WebElement> viewResults = driver.findElements(By.xpath("//a[@data-eventlabel='Product name']"));
+        return viewResults.stream()
+                .map(element -> element.getText())
+                .collect(Collectors.toList());
     }
 
     public List<String> getItemName() {

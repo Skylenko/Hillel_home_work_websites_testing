@@ -32,7 +32,9 @@ public class CheckPricesResultPage extends HomePageHotline {
     }
 
     public List<Integer> getSearchPrices() {
+
         List<Integer> resultsPrices = new ArrayList<Integer>();
+
 
         for (WebElement element : results) {
             String priceString = element.getText();

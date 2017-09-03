@@ -35,6 +35,5 @@ public class HomePageTest extends CommonTest{
         SearchPage searchPage = new SearchPage(driver);
         searchPage.searchPage();
 
-
     }
 }

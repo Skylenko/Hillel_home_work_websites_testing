@@ -24,7 +24,7 @@ public class HomePageRozetka extends AbstractPage {
 
     public SearchPage searchText(String text) {
 
-        //searchField.clear();
+        searchField.clear();
         searchField.sendKeys(text);
         buttonSearch.click();
         return new SearchPage(driver);
