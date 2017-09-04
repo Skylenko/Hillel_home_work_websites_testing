@@ -54,7 +54,6 @@ public class SearchPageTesting extends CommonTest {
         Assert.assertEquals(textCam, textCam2);
         Assert.assertEquals(textProc, textProc2);
 
-
     }
 }
 
