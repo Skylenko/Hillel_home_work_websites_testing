@@ -50,9 +50,10 @@ public class HomePageHotline extends AbstractPage {
 
         actions.moveToElement(autoMoto).perform();
 
-        List<WebElement> viewResults = driver.findElements(By.xpath("(//div[@class='m-sub-box'])[1]//a[@data-eventaction='Авто и Мото' and contains(@class, 'top g_statistic')]"));
+        List<WebElement> viewResults = driver.findElements(By.xpath("//*[@id='lv-1-898']/div/ul/li/a"));
         return viewResults.stream()
-                .map(element -> element.getText())
+                .filter(item -> !item.getText().contains("Гид покупателя"))
+                .map(WebElement::getText)
                 .collect(Collectors.toList());
     }
 

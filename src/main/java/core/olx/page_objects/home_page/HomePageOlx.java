@@ -28,7 +28,7 @@ public class HomePageOlx extends AbstractPage{
 
         List<WebElement> viewResults = driver.findElements(By.xpath("//a[@class='link-relatedcategory cat-1532 inlblk tdnone icon-link']"));
         return viewResults.stream()
-                .filter(item-> item.getText().contains("транспорт"))
+                .filter(item -> item.getText().contains("транспорт"))
                 .map(element -> element.getText())
                 .collect(Collectors.toList());
     }
